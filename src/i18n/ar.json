@@ -1,0 +1,128 @@
+{
+  "app": {
+    "title": "SprayLog",
+    "configMissing": "لم يتم ضبط Supabase. قم بتعيين VITE_SUPABASE_URL و VITE_SUPABASE_ANON_KEY في بيئة التشغيل ثم أعد البناء."
+  },
+  "nav": {
+    "spray": "الرش",
+    "records": "السجلات",
+    "parameters": "الإعدادات",
+    "planning": "التخطيط"
+  },
+  "auth": {
+    "login": "تسجيل الدخول",
+    "signup": "إنشاء حساب",
+    "email": "البريد الإلكتروني",
+    "password": "كلمة المرور",
+    "logout": "تسجيل الخروج",
+    "error": "فشل تسجيل الدخول",
+    "checkEmail": "تم إنشاء الحساب. تحقق من بريدك الإلكتروني للتأكيد ثم سجّل الدخول."
+  },
+  "common": {
+    "add": "إضافة",
+    "edit": "تعديل",
+    "delete": "حذف",
+    "save": "حفظ",
+    "cancel": "إلغاء",
+    "confirmDelete": "هل تريد حذف هذا العنصر؟",
+    "name": "الاسم",
+    "notes": "ملاحظات",
+    "unit": "الوحدة",
+    "date": "التاريخ",
+    "actions": "إجراءات",
+    "empty": "لا توجد بيانات بعد",
+    "loading": "جارٍ التحميل…",
+    "saving": "جارٍ الحفظ…",
+    "language": "English"
+  },
+  "material": {
+    "title": "المواد",
+    "type": "النوع",
+    "types": {
+      "pesticide": "مبيد",
+      "insecticide": "مبيد حشري",
+      "fungicide": "مبيد فطري",
+      "herbicide": "مبيد أعشاب",
+      "fertilizer": "سماد",
+      "adjuvant": "مادة مساعدة",
+      "other": "أخرى"
+    }
+  },
+  "plot": {
+    "title": "القطع",
+    "kind": "النوع",
+    "kinds": {
+      "greenhouse": "صوبة",
+      "open_field": "حقل مكشوف"
+    },
+    "interval": "فترة الرش",
+    "intervalUnit": "أيام",
+    "planned": "مخطط",
+    "gridX": "الموضع الأفقي",
+    "gridY": "الموضع الرأسي",
+    "gridW": "العرض",
+    "gridH": "الارتفاع"
+  },
+  "spray": {
+    "title": "تنفيذ الرش",
+    "selectPlots": "اختر القطع من الخريطة",
+    "selectAllDue": "اختيار المستحقة",
+    "mixture": "الخليط",
+    "addIngredient": "إضافة مكوّن",
+    "material": "المادة",
+    "quantity": "الكمية",
+    "appliedAt": "تاريخ الرش",
+    "submit": "حفظ الرش",
+    "success": "تم تسجيل الرش",
+    "errors": {
+      "noPlots": "اختر قطعة واحدة على الأقل",
+      "noItems": "أضف مكوّنًا واحدًا على الأقل مع تحديد المادة وكمية موجبة"
+    }
+  },
+  "records": {
+    "title": "السجلات",
+    "filter": {
+      "all": "كل القطع"
+    }
+  },
+  "planning": {
+    "title": "التخطيط",
+    "hint": "القطع غير المخططة تظهر باللون الرمادي على الخريطة ولا يمكن رشها."
+  },
+  "params": {
+    "tab": {
+      "materials": "المواد",
+      "plots": "القطع",
+      "notifications": "الإشعارات"
+    }
+  },
+  "notif": {
+    "leadHours": "التذكير قبل استحقاق الرش",
+    "lead": {
+      "6": "6 ساعات",
+      "12": "12 ساعة",
+      "24": "يوم واحد",
+      "48": "يومان"
+    },
+    "banner": {
+      "overdue": "الرش متأخر",
+      "dueSoon": "الرش مستحق قريبًا"
+    },
+    "test": "إرسال إشعار تجريبي",
+    "testBody": "هذا إشعار تجريبي من SprayLog"
+  },
+  "status": {
+    "overdue": "متأخر",
+    "due_soon": "مستحق قريبًا",
+    "ok": "سليم",
+    "unplanned": "غير مخطط"
+  },
+  "errors": {
+    "generic": "حدث خطأ ما",
+    "inUse": "لا يمكن الحذف: هذا العنصر مستخدم في سجلات الرش"
+  },
+  "map": {
+    "legend": "مفتاح الألوان",
+    "editHint": "حدد موضع وحجم كل قطعة على خريطة المزرعة"
+  }
+}

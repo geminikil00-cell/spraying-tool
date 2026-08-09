@@ -1,0 +1,128 @@
+{
+  "app": {
+    "title": "SprayLog",
+    "configMissing": "Supabase is not configured. Set VITE_SUPABASE_URL and VITE_SUPABASE_ANON_KEY in your environment, then rebuild."
+  },
+  "nav": {
+    "spray": "Spray",
+    "records": "Records",
+    "parameters": "Parameters",
+    "planning": "Planning"
+  },
+  "auth": {
+    "login": "Log in",
+    "signup": "Sign up",
+    "email": "Email",
+    "password": "Password",
+    "logout": "Log out",
+    "error": "Authentication failed",
+    "checkEmail": "Account created. Check your email to confirm, then log in."
+  },
+  "common": {
+    "add": "Add",
+    "edit": "Edit",
+    "delete": "Delete",
+    "save": "Save",
+    "cancel": "Cancel",
+    "confirmDelete": "Delete this item?",
+    "name": "Name",
+    "notes": "Notes",
+    "unit": "Unit",
+    "date": "Date",
+    "actions": "Actions",
+    "empty": "Nothing here yet",
+    "loading": "Loading…",
+    "saving": "Saving…",
+    "language": "العربية"
+  },
+  "material": {
+    "title": "Materials",
+    "type": "Type",
+    "types": {
+      "pesticide": "Pesticide",
+      "insecticide": "Insecticide",
+      "fungicide": "Fungicide",
+      "herbicide": "Herbicide",
+      "fertilizer": "Fertilizer",
+      "adjuvant": "Adjuvant",
+      "other": "Other"
+    }
+  },
+  "plot": {
+    "title": "Plots",
+    "kind": "Kind",
+    "kinds": {
+      "greenhouse": "Greenhouse",
+      "open_field": "Open field"
+    },
+    "interval": "Spray interval",
+    "intervalUnit": "days",
+    "planned": "Planned",
+    "gridX": "Position X",
+    "gridY": "Position Y",
+    "gridW": "Width",
+    "gridH": "Height"
+  },
+  "spray": {
+    "title": "Apply spraying",
+    "selectPlots": "Select plots on the map",
+    "selectAllDue": "Select all due",
+    "mixture": "Mixture",
+    "addIngredient": "Add ingredient",
+    "material": "Material",
+    "quantity": "Quantity",
+    "appliedAt": "Applied at",
+    "submit": "Save spraying",
+    "success": "Spraying recorded",
+    "errors": {
+      "noPlots": "Select at least one plot",
+      "noItems": "Add at least one ingredient with a material and a positive quantity"
+    }
+  },
+  "records": {
+    "title": "Records",
+    "filter": {
+      "all": "All plots"
+    }
+  },
+  "planning": {
+    "title": "Planning",
+    "hint": "Unplanned plots are gray on the map and cannot be sprayed."
+  },
+  "params": {
+    "tab": {
+      "materials": "Materials",
+      "plots": "Plots",
+      "notifications": "Notifications"
+    }
+  },
+  "notif": {
+    "leadHours": "Remind before a plot is due",
+    "lead": {
+      "6": "6 hours",
+      "12": "12 hours",
+      "24": "1 day",
+      "48": "2 days"
+    },
+    "banner": {
+      "overdue": "Spraying overdue",
+      "dueSoon": "Spraying due soon"
+    },
+    "test": "Send test notification",
+    "testBody": "This is a test notification from SprayLog"
+  },
+  "status": {
+    "overdue": "Overdue",
+    "due_soon": "Due soon",
+    "ok": "OK",
+    "unplanned": "Unplanned"
+  },
+  "errors": {
+    "generic": "Something went wrong",
+    "inUse": "Cannot delete: this item is used by spraying records"
+  },
+  "map": {
+    "legend": "Legend",
+    "editHint": "Set the position and size of each plot on the farm map"
+  }
+}
