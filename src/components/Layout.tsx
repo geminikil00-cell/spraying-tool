@@ -47,7 +47,7 @@ export default function Layout() {
   const overdueCount = reminders.overdue.length
 
   return (
-    <div className="mx-auto flex min-h-dvh w-full max-w-screen-xl bg-gray-50">
+    <div className="mx-auto flex min-h-dvh w-full bg-gradient-to-br from-primary-50/40 via-white to-primary-50/20">
       {mobileOpen && (
         <div
           className="fixed inset-0 z-40 bg-black/50 lg:hidden"
@@ -56,12 +56,12 @@ export default function Layout() {
       )}
 
       <aside
-        className={`fixed bottom-0 left-0 top-0 z-50 flex flex-col border-gray-200 bg-white transition-all duration-200 lg:static lg:z-auto ${
+        className={`fixed bottom-0 left-0 top-0 z-50 flex flex-col border-gray-200/50 glass transition-all duration-300 ease-in-out lg:static lg:z-auto ${
           mobileOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'
-        } ${sidebarOpen ? 'w-56' : 'w-16'} border-e`}
+        } ${sidebarOpen ? 'w-64' : 'w-20'} border-e shadow-[4px_0_24px_rgba(0,0,0,0.02)]`}
       >
         <div className={`flex items-center gap-2 p-4 ${sidebarOpen ? 'justify-start' : 'justify-center'}`}>
-          <span className="text-lg font-bold text-green-700">
+          <span className="text-xl font-extrabold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-primary-600 to-primary-400">
             {sidebarOpen ? 'SprayLog' : 'S'}
           </span>
         </div>
@@ -72,12 +72,12 @@ export default function Layout() {
               key={to}
               to={to}
               className={({ isActive }) =>
-                `group flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium transition-colors ${
-                  sidebarOpen ? 'justify-start' : 'justify-center'
+                `group flex items-center gap-3 rounded-xl px-3 py-3 text-sm font-semibold transition-all duration-200 ${
+                  sidebarOpen ? 'justify-start mx-2' : 'justify-center mx-1'
                 } ${
                   isActive
-                    ? 'bg-green-50 text-green-700'
-                    : 'text-gray-600 hover:bg-gray-100 hover:text-gray-900'
+                    ? 'bg-primary-50 text-primary-700 shadow-sm ring-1 ring-primary-100/50'
+                    : 'text-gray-500 hover:bg-gray-50/80 hover:text-gray-900 hover:scale-[1.02]'
                 }`
               }
               title={sidebarOpen ? undefined : t(labelKey)}
@@ -111,7 +111,7 @@ export default function Layout() {
       </aside>
 
       <div className="flex min-w-0 flex-1 flex-col">
-        <header className="sticky top-0 z-30 border-b border-gray-200 bg-white px-4 py-3">
+        <header className="sticky top-0 z-30 border-b border-gray-200/50 glass px-6 py-4 shadow-[0_4px_24px_rgba(0,0,0,0.02)] backdrop-blur-xl">
           <div className="flex items-center justify-between">
             <button
               type="button"
@@ -125,14 +125,14 @@ export default function Layout() {
               <button
                 type="button"
                 onClick={toggleLanguage}
-                className="rounded-lg border border-gray-300 px-2.5 py-1 text-xs font-medium text-gray-700 hover:bg-gray-100"
+                className="rounded-xl border border-gray-200/80 bg-white/50 px-3 py-1.5 text-xs font-semibold text-gray-600 shadow-sm transition-all hover:bg-white hover:text-gray-900 hover:shadow"
               >
                 {t('common.language')}
               </button>
               <button
                 type="button"
                 onClick={logout}
-                className="rounded-lg border border-gray-300 px-2.5 py-1 text-xs font-medium text-gray-700 hover:bg-gray-100"
+                className="rounded-xl border border-gray-200/80 bg-white/50 px-3 py-1.5 text-xs font-semibold text-gray-600 shadow-sm transition-all hover:bg-white hover:text-gray-900 hover:shadow"
               >
                 {t('auth.logout')}
               </button>

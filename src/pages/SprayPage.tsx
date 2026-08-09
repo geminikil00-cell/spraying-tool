@@ -21,14 +21,14 @@ export default function SprayPage() {
 
   return (
     <div className="space-y-4">
-      <h2 className="text-lg font-semibold text-gray-900">{t('spray.title')}</h2>
+      <h2 className="text-2xl font-bold tracking-tight text-gray-900 animate-slide-up">{t('spray.title')}</h2>
       <ReminderBanner />
       {success && (
         <div className="rounded-lg bg-green-100 p-3 text-sm font-medium text-green-800">
           {t('spray.success')}
         </div>
       )}
-      <div className="rounded-xl border border-gray-200 bg-white p-4 shadow-sm">
+      <div className="rounded-2xl border border-gray-200/60 glass p-6 shadow-lg animate-slide-up" style={{ animationDelay: '0.1s', animationFillMode: 'both' }}>
         <SprayingForm key={formKey} preselectDue onSubmit={handleSubmit} />
       </div>
     </div>

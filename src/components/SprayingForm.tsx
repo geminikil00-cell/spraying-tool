@@ -128,7 +128,7 @@ export default function SprayingForm({ initial, preselectDue, onSubmit, onCancel
         {rows.map((row, index) => (
           <div key={index} className="flex items-center gap-2">
             <select
-              className="min-w-0 flex-1 rounded-lg border border-gray-300 bg-white px-2 py-2 text-sm"
+              className="min-w-0 flex-1 rounded-xl border border-gray-200 bg-white/50 px-3 py-2 text-sm transition-all focus:border-primary-500 focus:bg-white focus:outline-none focus:ring-2 focus:ring-primary-500/20"
               value={row.materialId}
               onChange={(e) => onMaterialChange(index, e.target.value)}
             >
@@ -140,7 +140,7 @@ export default function SprayingForm({ initial, preselectDue, onSubmit, onCancel
               ))}
             </select>
             <input
-              className="w-24 rounded-lg border border-gray-300 px-2 py-2 text-sm"
+              className="w-24 rounded-xl border border-gray-200 bg-white/50 px-3 py-2 text-sm transition-all focus:border-primary-500 focus:bg-white focus:outline-none focus:ring-2 focus:ring-primary-500/20"
               type="number"
               inputMode="decimal"
               min="0"
@@ -150,7 +150,7 @@ export default function SprayingForm({ initial, preselectDue, onSubmit, onCancel
               onChange={(e) => setRow(index, { quantity: e.target.value })}
             />
             <input
-              className="w-16 rounded-lg border border-gray-300 px-2 py-2 text-sm"
+              className="w-16 rounded-xl border border-gray-200 bg-white/50 px-3 py-2 text-sm transition-all focus:border-primary-500 focus:bg-white focus:outline-none focus:ring-2 focus:ring-primary-500/20"
               placeholder={t('common.unit')}
               value={row.unit}
               onChange={(e) => setRow(index, { unit: e.target.value })}
@@ -168,7 +168,7 @@ export default function SprayingForm({ initial, preselectDue, onSubmit, onCancel
         <button
           type="button"
           onClick={() => setRows((current) => [...current, { materialId: '', quantity: '', unit: '' }])}
-          className="rounded-lg border border-dashed border-gray-400 px-3 py-1.5 text-sm text-gray-600 hover:bg-gray-100"
+          className="rounded-xl border border-dashed border-gray-300 px-4 py-2 text-sm font-medium text-gray-600 transition-all hover:bg-gray-50 hover:text-primary-600"
         >
           + {t('spray.addIngredient')}
         </button>
@@ -178,7 +178,7 @@ export default function SprayingForm({ initial, preselectDue, onSubmit, onCancel
         <div>
           <label className="mb-1 block text-sm font-medium text-gray-700">{t('spray.appliedAt')}</label>
           <input
-            className="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm"
+            className="w-full rounded-xl border border-gray-200 bg-white/50 px-4 py-2.5 text-sm transition-all focus:border-primary-500 focus:bg-white focus:outline-none focus:ring-2 focus:ring-primary-500/20"
             type="datetime-local"
             value={appliedAt}
             onChange={(e) => setAppliedAt(e.target.value)}
@@ -187,7 +187,7 @@ export default function SprayingForm({ initial, preselectDue, onSubmit, onCancel
         <div>
           <label className="mb-1 block text-sm font-medium text-gray-700">{t('common.notes')}</label>
           <textarea
-            className="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm"
+            className="w-full rounded-xl border border-gray-200 bg-white/50 px-4 py-2.5 text-sm transition-all focus:border-primary-500 focus:bg-white focus:outline-none focus:ring-2 focus:ring-primary-500/20"
             rows={2}
             value={notes}
             onChange={(e) => setNotes(e.target.value)}
@@ -202,7 +202,7 @@ export default function SprayingForm({ initial, preselectDue, onSubmit, onCancel
           type="button"
           onClick={() => void submit()}
           disabled={busy}
-          className="flex-1 rounded-lg bg-green-600 px-4 py-2.5 text-sm font-semibold text-white hover:bg-green-700 disabled:opacity-50"
+          className="flex-1 rounded-xl bg-gradient-to-r from-primary-600 to-primary-500 px-4 py-3 text-sm font-bold text-white shadow-lg shadow-primary-500/30 transition-all hover:scale-[1.02] hover:shadow-primary-500/40 disabled:scale-100 disabled:opacity-50"
         >
           {busy ? t('common.saving') : t('spray.submit')}
         </button>
