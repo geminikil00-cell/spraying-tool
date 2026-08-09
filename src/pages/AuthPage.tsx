@@ -76,12 +76,12 @@ export default function AuthPage() {
   if (hasSession) return <Navigate to="/spray" replace />
 
   return (
-    <div className="mx-auto flex min-h-dvh max-w-screen-md flex-col bg-gradient-to-br from-primary-50/40 via-white to-primary-50/20">
+    <div className="mx-auto flex min-h-dvh max-w-screen-md flex-col bg-gradient-to-br from-primary-50/40 via-white to-primary-50/20 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950">
       <div className="flex justify-end p-3">
         <button
           type="button"
           onClick={toggleLanguage}
-          className="rounded-xl border border-gray-200/80 bg-white/50 px-3 py-1.5 text-xs font-semibold text-gray-600 shadow-sm transition-all hover:bg-white hover:text-gray-900 hover:shadow"
+          className="rounded-xl border border-gray-200/80 bg-white/50 px-3 py-1.5 text-xs font-semibold text-gray-600 shadow-sm transition-all hover:bg-white hover:text-gray-900 hover:shadow dark:border-slate-700 dark:bg-slate-800/50 dark:text-slate-300 dark:hover:bg-slate-800 dark:hover:text-white"
         >
           {t('common.language')}
         </button>
@@ -93,12 +93,12 @@ export default function AuthPage() {
         >
           <h1 className="text-center text-3xl font-extrabold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-primary-600 to-primary-400">{t('app.title')}</h1>
 
-          <div className="grid grid-cols-2 gap-2 rounded-xl bg-gray-100/80 p-1.5 shadow-inner">
+          <div className="grid grid-cols-2 gap-2 rounded-xl bg-gray-100/80 p-1.5 shadow-inner dark:bg-slate-800/80 dark:shadow-black/20">
             <button
               type="button"
               onClick={() => setMode('login')}
               className={`rounded-lg px-3 py-2 text-sm font-semibold transition-all ${
-                mode === 'login' ? 'bg-white text-primary-700 shadow-sm ring-1 ring-primary-100/50' : 'text-gray-500 hover:text-gray-900'
+                mode === 'login' ? 'bg-white text-primary-700 shadow-sm ring-1 ring-primary-100/50 dark:bg-slate-700 dark:text-primary-400 dark:ring-primary-500/30' : 'text-gray-500 hover:text-gray-900 dark:text-slate-400 dark:hover:text-slate-200'
               }`}
             >
               {t('auth.login')}
@@ -107,7 +107,7 @@ export default function AuthPage() {
               type="button"
               onClick={() => setMode('signup')}
               className={`rounded-lg px-3 py-2 text-sm font-semibold transition-all ${
-                mode === 'signup' ? 'bg-white text-primary-700 shadow-sm ring-1 ring-primary-100/50' : 'text-gray-500 hover:text-gray-900'
+                mode === 'signup' ? 'bg-white text-primary-700 shadow-sm ring-1 ring-primary-100/50 dark:bg-slate-700 dark:text-primary-400 dark:ring-primary-500/30' : 'text-gray-500 hover:text-gray-900 dark:text-slate-400 dark:hover:text-slate-200'
               }`}
             >
               {t('auth.signup')}
@@ -115,9 +115,9 @@ export default function AuthPage() {
           </div>
 
           <div>
-            <label className="mb-1.5 block text-sm font-semibold text-gray-700">{t('auth.email')}</label>
+            <label className="mb-1.5 block text-sm font-semibold text-gray-700 dark:text-slate-300">{t('auth.email')}</label>
             <input
-              className="w-full rounded-xl border border-gray-200 bg-white/50 px-4 py-2.5 text-sm transition-all focus:border-primary-500 focus:bg-white focus:outline-none focus:ring-2 focus:ring-primary-500/20"
+              className="w-full rounded-xl border border-gray-200 bg-white/50 px-4 py-2.5 text-sm transition-all focus:border-primary-500 focus:bg-white focus:outline-none focus:ring-2 focus:ring-primary-500/20 dark:border-slate-700 dark:bg-slate-800/50 dark:text-slate-100 dark:focus:border-primary-500 dark:focus:bg-slate-800 dark:placeholder-slate-500"
               type="email"
               required
               value={email}
@@ -125,9 +125,9 @@ export default function AuthPage() {
             />
           </div>
           <div>
-            <label className="mb-1.5 block text-sm font-semibold text-gray-700">{t('auth.password')}</label>
+            <label className="mb-1.5 block text-sm font-semibold text-gray-700 dark:text-slate-300">{t('auth.password')}</label>
             <input
-              className="w-full rounded-xl border border-gray-200 bg-white/50 px-4 py-2.5 text-sm transition-all focus:border-primary-500 focus:bg-white focus:outline-none focus:ring-2 focus:ring-primary-500/20"
+              className="w-full rounded-xl border border-gray-200 bg-white/50 px-4 py-2.5 text-sm transition-all focus:border-primary-500 focus:bg-white focus:outline-none focus:ring-2 focus:ring-primary-500/20 dark:border-slate-700 dark:bg-slate-800/50 dark:text-slate-100 dark:focus:border-primary-500 dark:focus:bg-slate-800 dark:placeholder-slate-500"
               type="password"
               required
               minLength={6}

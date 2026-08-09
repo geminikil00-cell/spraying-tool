@@ -111,11 +111,11 @@ export default function SprayingForm({ initial, preselectDue, onSubmit, onCancel
     <div className="space-y-5">
       <section className="space-y-2">
         <div className="flex items-center justify-between">
-          <h3 className="text-sm font-semibold text-gray-800">{t('spray.selectPlots')}</h3>
+          <h3 className="text-sm font-semibold text-gray-800 dark:text-slate-200">{t('spray.selectPlots')}</h3>
           <button
             type="button"
             onClick={selectAllDue}
-            className="rounded-lg border border-red-300 px-2.5 py-1 text-xs font-medium text-red-700 hover:bg-red-50"
+            className="rounded-lg border border-red-300 px-2.5 py-1 text-xs font-medium text-red-700 hover:bg-red-50 dark:border-red-900 dark:text-red-400 dark:hover:bg-red-900/30"
           >
             {t('spray.selectAllDue')}
           </button>
@@ -124,11 +124,11 @@ export default function SprayingForm({ initial, preselectDue, onSubmit, onCancel
       </section>
 
       <section className="space-y-2">
-        <h3 className="text-sm font-semibold text-gray-800">{t('spray.mixture')}</h3>
+        <h3 className="text-sm font-semibold text-gray-800 dark:text-slate-200">{t('spray.mixture')}</h3>
         {rows.map((row, index) => (
           <div key={index} className="flex items-center gap-2">
             <select
-              className="min-w-0 flex-1 rounded-xl border border-gray-200 bg-white/50 px-3 py-2 text-sm transition-all focus:border-primary-500 focus:bg-white focus:outline-none focus:ring-2 focus:ring-primary-500/20"
+              className="min-w-0 flex-1 rounded-xl border border-gray-200 bg-white/50 px-3 py-2 text-sm transition-all focus:border-primary-500 focus:bg-white focus:outline-none focus:ring-2 focus:ring-primary-500/20 dark:border-slate-700 dark:bg-slate-800/50 dark:text-slate-100 dark:focus:border-primary-500 dark:focus:bg-slate-800"
               value={row.materialId}
               onChange={(e) => onMaterialChange(index, e.target.value)}
             >
@@ -140,7 +140,7 @@ export default function SprayingForm({ initial, preselectDue, onSubmit, onCancel
               ))}
             </select>
             <input
-              className="w-24 rounded-xl border border-gray-200 bg-white/50 px-3 py-2 text-sm transition-all focus:border-primary-500 focus:bg-white focus:outline-none focus:ring-2 focus:ring-primary-500/20"
+              className="w-24 rounded-xl border border-gray-200 bg-white/50 px-3 py-2 text-sm transition-all focus:border-primary-500 focus:bg-white focus:outline-none focus:ring-2 focus:ring-primary-500/20 dark:border-slate-700 dark:bg-slate-800/50 dark:text-slate-100 dark:focus:border-primary-500 dark:focus:bg-slate-800"
               type="number"
               inputMode="decimal"
               min="0"
@@ -150,7 +150,7 @@ export default function SprayingForm({ initial, preselectDue, onSubmit, onCancel
               onChange={(e) => setRow(index, { quantity: e.target.value })}
             />
             <input
-              className="w-16 rounded-xl border border-gray-200 bg-white/50 px-3 py-2 text-sm transition-all focus:border-primary-500 focus:bg-white focus:outline-none focus:ring-2 focus:ring-primary-500/20"
+              className="w-16 rounded-xl border border-gray-200 bg-white/50 px-3 py-2 text-sm transition-all focus:border-primary-500 focus:bg-white focus:outline-none focus:ring-2 focus:ring-primary-500/20 dark:border-slate-700 dark:bg-slate-800/50 dark:text-slate-100 dark:focus:border-primary-500 dark:focus:bg-slate-800"
               placeholder={t('common.unit')}
               value={row.unit}
               onChange={(e) => setRow(index, { unit: e.target.value })}
@@ -158,7 +158,7 @@ export default function SprayingForm({ initial, preselectDue, onSubmit, onCancel
             <button
               type="button"
               onClick={() => setRows((current) => current.filter((_, i) => i !== index))}
-              className="rounded-lg border border-gray-300 px-2.5 py-1.5 text-sm text-red-600 hover:bg-red-50"
+              className="rounded-lg border border-gray-300 px-2.5 py-1.5 text-sm text-red-600 hover:bg-red-50 dark:border-slate-700 dark:text-red-400 dark:hover:bg-red-900/30"
               aria-label={t('common.delete')}
             >
               &times;
@@ -168,7 +168,7 @@ export default function SprayingForm({ initial, preselectDue, onSubmit, onCancel
         <button
           type="button"
           onClick={() => setRows((current) => [...current, { materialId: '', quantity: '', unit: '' }])}
-          className="rounded-xl border border-dashed border-gray-300 px-4 py-2 text-sm font-medium text-gray-600 transition-all hover:bg-gray-50 hover:text-primary-600"
+          className="rounded-xl border border-dashed border-gray-300 px-4 py-2 text-sm font-medium text-gray-600 transition-all hover:bg-gray-50 hover:text-primary-600 dark:border-slate-600 dark:text-slate-400 dark:hover:border-primary-500/50 dark:hover:bg-primary-900/20 dark:hover:text-primary-400"
         >
           + {t('spray.addIngredient')}
         </button>
@@ -176,18 +176,18 @@ export default function SprayingForm({ initial, preselectDue, onSubmit, onCancel
 
       <section className="space-y-3">
         <div>
-          <label className="mb-1 block text-sm font-medium text-gray-700">{t('spray.appliedAt')}</label>
+          <label className="mb-1 block text-sm font-medium text-gray-700 dark:text-slate-300">{t('spray.appliedAt')}</label>
           <input
-            className="w-full rounded-xl border border-gray-200 bg-white/50 px-4 py-2.5 text-sm transition-all focus:border-primary-500 focus:bg-white focus:outline-none focus:ring-2 focus:ring-primary-500/20"
+            className="w-full rounded-xl border border-gray-200 bg-white/50 px-4 py-2.5 text-sm transition-all focus:border-primary-500 focus:bg-white focus:outline-none focus:ring-2 focus:ring-primary-500/20 dark:border-slate-700 dark:bg-slate-800/50 dark:text-slate-100 dark:focus:border-primary-500 dark:focus:bg-slate-800"
             type="datetime-local"
             value={appliedAt}
             onChange={(e) => setAppliedAt(e.target.value)}
           />
         </div>
         <div>
-          <label className="mb-1 block text-sm font-medium text-gray-700">{t('common.notes')}</label>
+          <label className="mb-1 block text-sm font-medium text-gray-700 dark:text-slate-300">{t('common.notes')}</label>
           <textarea
-            className="w-full rounded-xl border border-gray-200 bg-white/50 px-4 py-2.5 text-sm transition-all focus:border-primary-500 focus:bg-white focus:outline-none focus:ring-2 focus:ring-primary-500/20"
+            className="w-full rounded-xl border border-gray-200 bg-white/50 px-4 py-2.5 text-sm transition-all focus:border-primary-500 focus:bg-white focus:outline-none focus:ring-2 focus:ring-primary-500/20 dark:border-slate-700 dark:bg-slate-800/50 dark:text-slate-100 dark:focus:border-primary-500 dark:focus:bg-slate-800"
             rows={2}
             value={notes}
             onChange={(e) => setNotes(e.target.value)}
@@ -210,7 +210,7 @@ export default function SprayingForm({ initial, preselectDue, onSubmit, onCancel
           <button
             type="button"
             onClick={onCancel}
-            className="rounded-lg border border-gray-300 px-4 py-2.5 text-sm font-medium text-gray-700 hover:bg-gray-100"
+            className="rounded-lg border border-gray-300 px-4 py-2.5 text-sm font-medium text-gray-700 hover:bg-gray-100 dark:border-slate-700 dark:text-slate-300 dark:hover:bg-slate-800"
           >
             {t('common.cancel')}
           </button>

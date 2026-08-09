@@ -67,7 +67,7 @@ export default function FarmMap({
         })}
       </div>
       {showLegend && (
-        <div className="mt-3 flex flex-wrap items-center gap-x-4 gap-y-1 text-xs text-gray-600">
+        <div className="mt-3 flex flex-wrap items-center gap-x-4 gap-y-1 text-xs text-gray-600 dark:text-slate-400">
           <span className="font-medium">{t('map.legend')}:</span>
           {legendOrder.map((status) => (
             <span key={status} className="inline-flex items-center gap-1">

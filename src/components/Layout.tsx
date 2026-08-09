@@ -22,6 +22,19 @@ export default function Layout() {
   const location = useLocation()
   const [sidebarOpen, setSidebarOpen] = useState(() => localStorage.getItem(SIDEBAR_KEY) !== 'false')
   const [mobileOpen, setMobileOpen] = useState(false)
+  const [isDarkMode, setIsDarkMode] = useState(() => {
+    return localStorage.getItem('theme') === 'dark' || (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)
+  })
+
+  useEffect(() => {
+    if (isDarkMode) {
+      document.documentElement.classList.add('dark')
+      localStorage.setItem('theme', 'dark')
+    } else {
+      document.documentElement.classList.remove('dark')
+      localStorage.setItem('theme', 'light')
+    }
+  }, [isDarkMode])
 
   useEffect(() => {
     void initNotifications(() => { void refresh() })
@@ -47,7 +60,7 @@ export default function Layout() {
   const overdueCount = reminders.overdue.length
 
   return (
-    <div className="mx-auto flex min-h-dvh w-full bg-gradient-to-br from-primary-50/40 via-white to-primary-50/20">
+    <div className="mx-auto flex min-h-dvh w-full bg-gradient-to-br from-primary-50/40 via-white to-primary-50/20 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950">
       {mobileOpen && (
         <div
           className="fixed inset-0 z-40 bg-black/50 lg:hidden"
@@ -56,9 +69,9 @@ export default function Layout() {
       )}
 
       <aside
-        className={`fixed bottom-0 left-0 top-0 z-50 flex flex-col border-gray-200/50 glass transition-all duration-300 ease-in-out lg:static lg:z-auto ${
+        className={`fixed bottom-0 left-0 top-0 z-50 flex flex-col glass transition-all duration-300 ease-in-out lg:static lg:z-auto ${
           mobileOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'
-        } ${sidebarOpen ? 'w-64' : 'w-20'} border-e shadow-[4px_0_24px_rgba(0,0,0,0.02)]`}
+        } ${sidebarOpen ? 'w-64' : 'w-20'} border-e border-gray-200/50 dark:border-slate-800 shadow-[4px_0_24px_rgba(0,0,0,0.02)]`}
       >
         <div className={`flex items-center gap-2 p-4 ${sidebarOpen ? 'justify-start' : 'justify-center'}`}>
           <span className="text-xl font-extrabold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-primary-600 to-primary-400">
@@ -76,8 +89,8 @@ export default function Layout() {
                   sidebarOpen ? 'justify-start mx-2' : 'justify-center mx-1'
                 } ${
                   isActive
-                    ? 'bg-primary-50 text-primary-700 shadow-sm ring-1 ring-primary-100/50'
-                    : 'text-gray-500 hover:bg-gray-50/80 hover:text-gray-900 hover:scale-[1.02]'
+                    ? 'bg-primary-50 text-primary-700 shadow-sm ring-1 ring-primary-100/50 dark:bg-primary-500/20 dark:text-primary-400 dark:ring-primary-500/30'
+                    : 'text-gray-500 hover:bg-gray-50/80 hover:text-gray-900 hover:scale-[1.02] dark:text-slate-400 dark:hover:bg-slate-800/80 dark:hover:text-slate-200'
                 }`
               }
               title={sidebarOpen ? undefined : t(labelKey)}
@@ -99,7 +112,7 @@ export default function Layout() {
           <button
             type="button"
             onClick={() => setSidebarOpen((prev) => !prev)}
-            className={`flex items-center gap-2 rounded-lg px-3 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700 ${
+            className={`flex items-center gap-2 rounded-lg px-3 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700 dark:text-slate-400 dark:hover:bg-slate-800/80 dark:hover:text-slate-200 ${
               sidebarOpen ? 'w-full justify-start' : 'justify-center'
             }`}
             title={sidebarOpen ? undefined : 'Expand'}
@@ -111,28 +124,42 @@ export default function Layout() {
       </aside>
 
       <div className="flex min-w-0 flex-1 flex-col">
-        <header className="sticky top-0 z-30 border-b border-gray-200/50 glass px-6 py-4 shadow-[0_4px_24px_rgba(0,0,0,0.02)] backdrop-blur-xl">
+        <header className="sticky top-0 z-30 border-b border-gray-200/50 dark:border-slate-800 glass px-6 py-4 shadow-[0_4px_24px_rgba(0,0,0,0.02)] backdrop-blur-xl">
           <div className="flex items-center justify-between">
             <button
               type="button"
               onClick={() => setMobileOpen((prev) => !prev)}
-              className="rounded-lg p-1.5 text-gray-600 hover:bg-gray-100 lg:hidden"
+              className="rounded-lg p-1.5 text-gray-600 hover:bg-gray-100 dark:text-slate-400 dark:hover:bg-slate-800 lg:hidden"
               aria-label="Menu"
             >
               <MenuIcon />
             </button>
             <div className="flex items-center gap-2">
+              <a
+                href="/spraylog.apk"
+                download
+                className="rounded-lg border border-green-500 px-2.5 py-1 text-xs font-medium text-green-700 hover:bg-green-50"
+              >
+                {t('common.download')}
+              </a>
+              <button
+                type="button"
+                onClick={() => setIsDarkMode((prev) => !prev)}
+                className="rounded-xl border border-gray-200/80 bg-white/50 px-3 py-1.5 text-xs font-semibold text-gray-600 shadow-sm transition-all hover:bg-white hover:text-gray-900 hover:shadow dark:border-slate-700 dark:bg-slate-800/50 dark:text-slate-300 dark:hover:bg-slate-800 dark:hover:text-white"
+              >
+                {isDarkMode ? 'Light' : 'Dark'}
+              </button>
               <button
                 type="button"
                 onClick={toggleLanguage}
-                className="rounded-xl border border-gray-200/80 bg-white/50 px-3 py-1.5 text-xs font-semibold text-gray-600 shadow-sm transition-all hover:bg-white hover:text-gray-900 hover:shadow"
+                className="rounded-xl border border-gray-200/80 bg-white/50 px-3 py-1.5 text-xs font-semibold text-gray-600 shadow-sm transition-all hover:bg-white hover:text-gray-900 hover:shadow dark:border-slate-700 dark:bg-slate-800/50 dark:text-slate-300 dark:hover:bg-slate-800 dark:hover:text-white"
               >
                 {t('common.language')}
               </button>
               <button
                 type="button"
                 onClick={logout}
-                className="rounded-xl border border-gray-200/80 bg-white/50 px-3 py-1.5 text-xs font-semibold text-gray-600 shadow-sm transition-all hover:bg-white hover:text-gray-900 hover:shadow"
+                className="rounded-xl border border-gray-200/80 bg-white/50 px-3 py-1.5 text-xs font-semibold text-gray-600 shadow-sm transition-all hover:bg-white hover:text-gray-900 hover:shadow dark:border-slate-700 dark:bg-slate-800/50 dark:text-slate-300 dark:hover:bg-slate-800 dark:hover:text-white"
               >
                 {t('auth.logout')}
               </button>
