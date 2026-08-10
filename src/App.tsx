@@ -4,7 +4,7 @@ import RequireAuth from './components/RequireAuth'
 import { FarmDataProvider } from './lib/FarmDataContext'
 import AuthPage from './pages/AuthPage'
 import ParamsPage from './pages/ParamsPage'
-import PlanningPage from './pages/PlanningPage'
+import PlantingPage from './pages/PlantingPage'
 import RecordsPage from './pages/RecordsPage'
 import SprayPage from './pages/SprayPage'
 
@@ -28,7 +28,7 @@ export default function App() {
           <Route path="/spray" element={<SprayPage />} />
           <Route path="/records" element={<RecordsPage />} />
           <Route path="/params" element={<ParamsPage />} />
-          <Route path="/planning" element={<PlanningPage />} />
+          <Route path="/planting" element={<PlantingPage />} />
         </Route>
       </Route>
       <Route path="*" element={<Navigate to="/spray" replace />} />

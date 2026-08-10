@@ -12,7 +12,7 @@ const statusDot: Record<string, string> = {
   unplanned: 'bg-gray-300',
 }
 
-export default function PlanningPage() {
+export default function PlantingPage() {
   const { t } = useTranslation()
   const { loading, plotsWithStatus, refresh } = useFarmData()
   const [error, setError] = useState<string | null>(null)
@@ -28,8 +28,8 @@ export default function PlanningPage() {
 
   return (
     <div className="space-y-4">
-      <h2 className="text-lg font-semibold text-gray-900">{t('planning.title')}</h2>
-      <p className="text-sm text-gray-500">{t('planning.hint')}</p>
+      <h2 className="text-lg font-semibold text-gray-900">{t('planting.title')}</h2>
+      <p className="text-sm text-gray-500">{t('planting.hint')}</p>
 
       {error && (
         <div className="rounded-lg bg-red-100 p-3 text-sm text-red-800">
@@ -58,7 +58,7 @@ export default function PlanningPage() {
                 </div>
               </div>
               <div className="flex items-center gap-2">
-                <span className="text-xs text-gray-500">{t('plot.planned')}</span>
+                <span className="text-xs text-gray-500">{t('plot.planted')}</span>
                 <Toggle checked={plot.planned} onChange={() => void toggle(plot)} />
               </div>
             </li>

@@ -13,7 +13,7 @@ const navItems = [
   { to: '/spray', labelKey: 'nav.spray', icon: SprayIcon },
   { to: '/records', labelKey: 'nav.records', icon: RecordsIcon },
   { to: '/params', labelKey: 'nav.parameters', icon: ParamsIcon },
-  { to: '/planning', labelKey: 'nav.planning', icon: PlanIcon },
+  { to: '/planting', labelKey: 'nav.planting', icon: PlanIcon },
 ]
 
 export default function Layout() {
@@ -58,6 +58,7 @@ export default function Layout() {
   const logout = () => { void supabase.auth.signOut() }
 
   const overdueCount = reminders.overdue.length
+  const isRTL = i18n.language.startsWith('ar')
 
   return (
     <div className="mx-auto flex min-h-dvh w-full bg-gradient-to-br from-primary-50/40 via-white to-primary-50/20 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950">
@@ -69,8 +70,8 @@ export default function Layout() {
       )}
 
       <aside
-        className={`fixed bottom-0 left-0 top-0 z-50 flex flex-col glass transition-all duration-300 ease-in-out lg:static lg:z-auto ${
-          mobileOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'
+        className={`fixed bottom-0 start-0 top-0 z-50 flex flex-col glass transition-all duration-300 ease-in-out lg:static lg:z-auto ${
+          mobileOpen ? 'translate-x-0' : isRTL ? 'translate-x-full lg:translate-x-0' : '-translate-x-full lg:translate-x-0'
         } ${sidebarOpen ? 'w-64' : 'w-20'} border-e border-gray-200/50 dark:border-slate-800 shadow-[4px_0_24px_rgba(0,0,0,0.02)]`}
       >
         <div className={`flex items-center gap-2 p-4 ${sidebarOpen ? 'justify-start' : 'justify-center'}`}>

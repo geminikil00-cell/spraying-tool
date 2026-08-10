@@ -7,7 +7,7 @@
     "spray": "Spray",
     "records": "Records",
     "parameters": "Parameters",
-    "planning": "Planning"
+    "planting": "Planting"
   },
   "auth": {
     "login": "Log in",
@@ -59,7 +59,7 @@
     },
     "interval": "Spray interval",
     "intervalUnit": "days",
-    "planned": "Planned",
+    "planted": "Planted",
     "gridX": "Position X",
     "gridY": "Position Y",
     "gridW": "Width",
@@ -87,9 +87,9 @@
       "all": "All plots"
     }
   },
-  "planning": {
-    "title": "Planning",
-    "hint": "Unplanned plots are gray on the map and cannot be sprayed."
+  "planting": {
+    "title": "Planting",
+    "hint": "Unplanted plots are gray on the map and cannot be sprayed."
   },
   "params": {
     "tab": {
@@ -117,7 +117,7 @@
     "overdue": "Overdue",
     "due_soon": "Due soon",
     "ok": "OK",
-    "unplanned": "Unplanned"
+    "unplanned": "Unplanted"
   },
   "errors": {
     "generic": "Something went wrong",
